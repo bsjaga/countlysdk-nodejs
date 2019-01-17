@@ -28,7 +28,7 @@ describe("Running simple example", function(){
             done();
         };
         var cmd = "node "+dir+"/examples/example.js";
-        var child = exec(cmd, handler);
+        exec(cmd, handler);
     });
 });
 

@@ -1,3 +1,5 @@
+//since we need to test crashing the app
+/*global runthis, crashDaApp*/
 var cluster = require("cluster");
 
 if (cluster.isMaster) {

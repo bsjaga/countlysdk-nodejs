@@ -1,3 +1,5 @@
+//since we need to test crashing the app
+/*global runthis, crashDaApp*/
 var Countly = require("../lib/countly.js");
 
 Countly.init({
