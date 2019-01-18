@@ -19,11 +19,11 @@ describe("Running simple example", function(){
                 });
             }
             describe("Clearing data", function(){
-               it("should remove data", function(){
-                   fs.unlinkSync(dir+"/data/__cly_event.json");
-                   fs.unlinkSync(dir+"/data/__cly_id.json");
-                   fs.unlinkSync(dir+"/data/__cly_queue.json");
-               });
+                it("should remove data", function(){
+                    fs.unlinkSync(dir+"/data/__cly_event.json");
+                    fs.unlinkSync(dir+"/data/__cly_id.json");
+                    fs.unlinkSync(dir+"/data/__cly_queue.json");
+                });
             });
             done();
         };
@@ -138,7 +138,7 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testBeginSession(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Adding event: ");},
     function(data){assert.deepEqual(JSON.parse(data), {"key":"in_app_purchase","count":3,"sum":2.97,"dur":1000,"segmentation":{"app_version":"1.0","country":"Turkey"}});},
@@ -147,7 +147,7 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testEvent(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Adding userdetails: ");},
     function(data){assert.deepEqual(JSON.parse(data), {"name":"Arturs Sosins","username":"ar2rsawseen","email":"test@test.com","organization":"Countly","phone":"+37112345678","picture":"https://pbs.twimg.com/profile_images/1442562237/012_n_400x400.jpg","gender":"M","byear":1987,"custom":{"key1":"value1","key2":"value2"}});},
@@ -156,7 +156,7 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testUserDetails(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Adding event: ");},
     function(data){assert.deepEqual(JSON.parse(data), {"key":"[CLY]_view","segmentation":{"name":"test1","visit":1,"segment":os.type()},"count":1});},
@@ -165,7 +165,7 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testEvent(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Got metrics");},
     function(data){testMetrics(data);},
@@ -174,7 +174,7 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testCrash(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Adding event: ");},
     function(data){assert.deepEqual(JSON.parse(data), {"key":"timed","count":1,"segmentation":{"app_version":"1.0","country":"Turkey"},"dur":25});},
@@ -183,7 +183,7 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testEvent(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Adding event: ");},
     function(data){assert.deepEqual(JSON.parse(data), {"key":"[CLY]_view","dur":40,"segmentation":{"name":"test1","segment":os.type()},"count":1});},
@@ -194,7 +194,7 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testEvent(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Session extended");},
     function(data){assert(data >= 60 && data <= 61);},
@@ -203,7 +203,7 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testSessionDuration(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Ending session");},
     function(data){assert.equal(data, "Adding event: ");},
@@ -213,13 +213,13 @@ var tests = [
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testEndSession(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     function(data){assert.equal(data, "Processing request");},
     function(data){testEvent(data);},
     function(data){assert.equal(data, "Sending HTTP request");},
     function(data){assert.equal(data, "Request Finished");},
     function(data){testEvent(data);},
-    function(data){assert(data === "false")},
+    function(data){assert(data === "false");},
     
     function(data){assert.equal(data, "Got metrics");},
     function(data){testMetrics(data);},

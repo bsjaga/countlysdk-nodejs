@@ -3,11 +3,11 @@
 var cluster = require("cluster");
 
 if (cluster.isMaster) {
-  console.log("I am master");
-  cluster.fork();
-  cluster.fork();
+    console.log("I am master");
+    cluster.fork();
+    cluster.fork();
 } else if (cluster.isWorker) {
-  console.log("I am worker "+cluster.worker.id);
+    console.log("I am worker "+cluster.worker.id);
 }
 
 var Countly = require("../lib/countly.js");
@@ -43,8 +43,8 @@ Countly.user_details({
     "gender": "M",
     "byear": 1987, //birth year
     "custom":{
-      "key1":"value1",
-      "key2":"value2",
+        "key1":"value1",
+        "key2":"value2",
     }
 });
   

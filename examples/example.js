@@ -38,8 +38,8 @@ setTimeout(function(){
         "gender": "M",
         "byear": 1987, //birth year
         "custom":{
-        "key1":"value1",
-        "key2":"value2",
+            "key1":"value1",
+            "key2":"value2",
         }
     });
 }, 10000);
