@@ -42,7 +42,7 @@ function testMetrics(data){
 function testBeginSession(data){
     data = JSON.parse(data);
     assert.equal(data.begin_session, 1);
-    assert.equal(data.app_key, "{YOUR-APP-KEY}");
+    assert.equal(data.app_key, "YOUR_APP_KEY");
     assert.ok(data.device_id);
     assert.ok(data.timestamp);
     assert.ok(typeof data.hour !== "undefined");
@@ -53,7 +53,7 @@ function testBeginSession(data){
 function testSessionDuration(data){
     data = JSON.parse(data);
     assert.equal(assert(data.session_duration >= 60 && data.session_duration <= 61));
-    assert.equal(data.app_key, "{YOUR-APP-KEY}");
+    assert.equal(data.app_key, "YOUR_APP_KEY");
     assert.ok(data.device_id);
     assert.ok(data.timestamp);
     assert.ok(typeof data.hour !== "undefined");
@@ -64,7 +64,7 @@ function testEndSession(data){
     data = JSON.parse(data);
     assert.equal(data.end_session, 1);
     assert.equal(assert(data.session_duration >= 9 && data.session_duration <= 11));
-    assert.equal(data.app_key, "{YOUR-APP-KEY}");
+    assert.equal(data.app_key, "YOUR_APP_KEY");
     assert.ok(data.device_id);
     assert.ok(data.timestamp);
     assert.ok(typeof data.hour !== "undefined");
@@ -82,7 +82,7 @@ function testEvent(data){
         assert.ok(typeof data.events[i].hour !== "undefined");
         assert.ok(typeof data.events[i].dow !== "undefined");
     }
-    assert.equal(data.app_key, "{YOUR-APP-KEY}");
+    assert.equal(data.app_key, "YOUR_APP_KEY");
     assert.ok(data.device_id);
     assert.ok(data.timestamp);
     assert.ok(typeof data.hour !== "undefined");
@@ -102,7 +102,7 @@ function testUserDetails(data){
     assert.ok(data.user_details.gender);
     assert.ok(data.user_details.byear);
     assert.ok(data.user_details.custom);
-    assert.equal(data.app_key, "{YOUR-APP-KEY}");
+    assert.equal(data.app_key, "YOUR_APP_KEY");
     assert.ok(data.device_id);
     assert.ok(data.timestamp);
     assert.ok(typeof data.hour !== "undefined");
@@ -120,7 +120,7 @@ function testCrash(data){
     assert.ok(data.crash._run);
     assert.ok(data.crash._not_os_specific);
     assert.ok(data.crash._nonfatal);
-    assert.equal(data.app_key, "{YOUR-APP-KEY}");
+    assert.equal(data.app_key, "YOUR_APP_KEY");
     assert.ok(data.device_id);
     assert.ok(data.timestamp);
     assert.ok(typeof data.hour !== "undefined");
