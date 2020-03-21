@@ -27,7 +27,9 @@ function expressMiddleware(req, res, next) {
             trace.etz = Date.now();
             trace.apm_metrics = {
                 response_time: trace.etz - trace.stz,
-                response_code: res.statusCode
+                response_code: res.statusCode,
+                response_payload_size: res.getHeader('Content-Length') || res._contentLength,
+                request_payload_size: (req.socket && req.socket.bytesRead) ? req.socket.bytesRead : req.getHeader('Content-Length')
             };
             Countly.report_trace(trace);
         }
