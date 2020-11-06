@@ -52,7 +52,7 @@ function testBeginSession(data){
 
 function testSessionDuration(data){
     data = JSON.parse(data);
-    assert.equal(assert(data.session_duration >= 60 && data.session_duration <= 61));
+    assert.ok(data.session_duration >= 60 && data.session_duration <= 61);
     assert.equal(data.app_key, "YOUR_APP_KEY");
     assert.ok(data.device_id);
     assert.ok(data.timestamp);
@@ -63,7 +63,7 @@ function testSessionDuration(data){
 function testEndSession(data){
     data = JSON.parse(data);
     assert.equal(data.end_session, 1);
-    assert.equal(assert(data.session_duration >= 9 && data.session_duration <= 11));
+    assert.ok(data.session_duration >= 9 && data.session_duration <= 11);
     assert.equal(data.app_key, "YOUR_APP_KEY");
     assert.ok(data.device_id);
     assert.ok(data.timestamp);
