@@ -11,16 +11,24 @@ Countly.init({
 //report app start trace
 Countly.report_app_start();
 
-//example express middleware
+/**
+ *  example express middleware
+ *  @param {Object} req - request object
+ *  @param {Object} res - response object
+ *  @param {Function} next - next middleware call
+ */
 function expressMiddleware(req, res, next) {
     var trace = {
         type: "network",
         name: req.baseUrl + req.path,
         stz: Date.now(),
     };
-    
+
     var processed = false;
-    
+
+    /**
+     *  Prepare request data
+     */
     function processRequest() {
         if (!processed) {
             processed = true;

@@ -13,7 +13,7 @@ Countly.begin_session();
 
 Countly.track_errors();
 
-setTimeout(function(){
+setTimeout(function() {
     Countly.add_event({
         "key": "in_app_purchase",
         "count": 3,
@@ -26,7 +26,7 @@ setTimeout(function(){
     });
 }, 5000);
 
-setTimeout(function(){    
+setTimeout(function() {
     Countly.user_details({
         "name": "Arturs Sosins",
         "username": "ar2rsawseen",
@@ -34,32 +34,34 @@ setTimeout(function(){
         "organization": "Countly",
         "phone": "+37112345678",
         //Web URL to picture
-        "picture": "https://pbs.twimg.com/profile_images/1442562237/012_n_400x400.jpg", 
+        "picture": "https://pbs.twimg.com/profile_images/1442562237/012_n_400x400.jpg",
         "gender": "M",
         "byear": 1987, //birth year
-        "custom":{
-            "key1":"value1",
-            "key2":"value2",
+        "custom": {
+            "key1": "value1",
+            "key2": "value2",
         }
     });
 }, 10000);
-  
-setTimeout(function(){
+
+setTimeout(function() {
     Countly.track_view("test1");
 }, 15000);
 
-setTimeout(function(){
-    try{
+setTimeout(function() {
+    try {
         runthis();
     }
-    catch(ex){Countly.log_error(ex);}
+    catch (ex) {
+        Countly.log_error(ex);
+    }
 }, 20000);
 
-setTimeout(function(){
+setTimeout(function() {
     Countly.start_event("timed");
 }, 25000);
 
-setTimeout(function(){
+setTimeout(function() {
     Countly.end_event({
         "key": "timed",
         "count": 1,
@@ -70,18 +72,17 @@ setTimeout(function(){
     });
 }, 50000);
 
-setTimeout(function(){
+setTimeout(function() {
     Countly.track_view("test1");
 }, 55000);
 
 
-setTimeout(function(){
+setTimeout(function() {
     Countly.end_session();
 }, 70000);
 
 
-setTimeout(function(){
+setTimeout(function() {
     crashDaApp();
 }, 100000);
-          
-          
+

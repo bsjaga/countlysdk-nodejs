@@ -3,11 +3,14 @@
 var cluster = require("cluster");
 
 if (cluster.isMaster) {
+    // eslint-disable-next-line no-console
     console.log("I am master");
     cluster.fork();
     cluster.fork();
-} else if (cluster.isWorker) {
-    console.log("I am worker "+cluster.worker.id);
+}
+else if (cluster.isWorker) {
+    // eslint-disable-next-line no-console
+    console.log("I am worker " + cluster.worker.id);
 }
 
 var Countly = require("../lib/countly.js");
@@ -31,7 +34,7 @@ Countly.add_event({
         "country": "Turkey"
     }
 });
-          
+
 Countly.user_details({
     "name": "Arturs Sosins",
     "username": "ar2rsawseen",
@@ -39,30 +42,32 @@ Countly.user_details({
     "organization": "Countly",
     "phone": "+37112345678",
     //Web URL to picture
-    "picture": "https://pbs.twimg.com/profile_images/1442562237/012_n_400x400.jpg", 
+    "picture": "https://pbs.twimg.com/profile_images/1442562237/012_n_400x400.jpg",
     "gender": "M",
     "byear": 1987, //birth year
-    "custom":{
-        "key1":"value1",
-        "key2":"value2",
+    "custom": {
+        "key1": "value1",
+        "key2": "value2",
     }
 });
-  
+
 Countly.track_errors();
 Countly.track_view("test");
 
-try{
+try {
     runthis();
 }
-catch(ex){Countly.log_error(ex);}
+catch (ex) {
+    Countly.log_error(ex);
+}
 
-setTimeout(function(){
+setTimeout(function() {
     Countly.end_session();
 }, 7000);
 
 Countly.start_event("timed");
 
-setTimeout(function(){
+setTimeout(function() {
     Countly.end_event({
         "key": "timed",
         "count": 1,
@@ -73,13 +78,13 @@ setTimeout(function(){
     });
 }, 3000);
 
-if(!cluster.isMaster){
-    setTimeout(function(){
+if (!cluster.isMaster) {
+    setTimeout(function() {
         crashDaApp();
     }, 10000);
 }
-else{
-    setTimeout(function(){
+else {
+    setTimeout(function() {
         crashDaApp();
     }, 15000);
 }

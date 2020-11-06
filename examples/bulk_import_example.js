@@ -7,7 +7,7 @@ var server = new CountlyBulk({
 });
 
 //start processing queued requests or next ones that will be added
-server.start(function(){
+server.start(function() {
     //callback is called when there is nothing in queue
     //in this example we can stop server link, but if you are adding data with timeouts, like retrieving data from database, 
     //it might not be a good idea to stop automatically, but rather wait for all data to be added and check queue size manually
@@ -17,17 +17,17 @@ server.start(function(){
 });
 
 
-var user = server.add_user({device_id:"my_device_id"});
+var user = server.add_user({device_id: "my_device_id"});
 
-user.begin_session({_os:"Android", _os_version:"7", _app_version:"1.0"}, 240, 1500645060)
-    .add_event({key:"Test1", timestamp:1500645060})
-    .add_event({key:"Test2", timestamp:1500645060})
-    .add_event({key:"Test3", timestamp:1500645060})
-    .user_details({name:"Test user", email:"test@test.test"})
+user.begin_session({_os: "Android", _os_version: "7", _app_version: "1.0"}, 240, 1500645060)
+    .add_event({key: "Test1", timestamp: 1500645060})
+    .add_event({key: "Test2", timestamp: 1500645060})
+    .add_event({key: "Test3", timestamp: 1500645060})
+    .user_details({name: "Test user", email: "test@test.test"})
     .report_view("Login view", "Android", 1500645060, 200, true)
     .report_view("Logout view", "Android", 1500645260, 40, false, true)
     .report_rating(5, "Android", "1.0", 1500645160)
-    .report_crash({_os:"Android", _os_version:"7", _error:"Stack trace goes here", _app_version:"1.0"},1500645200)
+    .report_crash({_os: "Android", _os_version: "7", _error: "Stack trace goes here", _app_version: "1.0"}, 1500645200)
     .custom_set("key", "value")
     .custom_set_once("only", "once")
     .custom_increment("inc")
