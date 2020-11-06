@@ -26,7 +26,7 @@ user.begin_session({_os: "Android", _os_version: "7", _app_version: "1.0"}, 240,
     .user_details({name: "Test user", email: "test@test.test"})
     .report_view("Login view", "Android", 1500645060, 200, true)
     .report_view("Logout view", "Android", 1500645260, 40, false, true)
-    .report_rating(5, "Android", "1.0", 1500645160)
+    .report_feedback({rating: 5, platform: "Android", app_version: "1.0", widget_id:"1"}, 1500645160)
     .report_crash({_os: "Android", _os_version: "7", _error: "Stack trace goes here", _app_version: "1.0"}, 1500645200)
     .custom_set("key", "value")
     .custom_set_once("only", "once")
