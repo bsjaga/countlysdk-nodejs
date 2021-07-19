@@ -5,8 +5,11 @@
 echo "Starting documention deployment script"
 GITHUB_BRANCH=${GITHUB_REF##*/}
 echo "$GITHUB_BRANCH"
+echo "$GITHUB_HEAD_REF"
+echo "$GITHUB_REF"
+echo "$GITHUB_REPOSITORY"
 
-if [ -z "$GITHUB_HEAD_REF" ] && [ "$GITHUB_REF" == "refs/heads/feature/actions" ] && [ "$GITHUB_REPOSITORY" == "Countly/countly-sdk-nodejs" ] && [ "$GITHUB_BRANCH" == "master" ]; then
+if [ -z "$GITHUB_HEAD_REF" ] && [ "$GITHUB_REPOSITORY" == "Countly/countly-sdk-nodejs" ] && [ "$GITHUB_BRANCH" == "master" ]; then
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
