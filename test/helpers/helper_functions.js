@@ -10,8 +10,9 @@ var idDir = (dir + "/data/__cly_id.json");
 var eventDir = (dir + "/data/__cly_event.json");
 var reqDir = (dir + "/data/__cly_queue.json");
 //timeout variables
-var span = 50;
-var mpan = 3000;
+var sWait = 50;
+var mWait = 3000;
+var lWait = 10000;
 //parsing event queue
 function readEventQueue() {
     var a = JSON.parse(fs.readFileSync(eventDir, "utf-8")).cly_event;
@@ -25,7 +26,9 @@ function readRequestQueue() {
 
 //queue files clearing logic
 function clearStorage() {
-    Countly.halt();
+    //Resets Countly
+    Countly.halt(true);
+    //clean storages
     if (fs.existsSync(idDir)) {
         fs.unlinkSync(idDir);
     }
@@ -82,6 +85,7 @@ function requestBaseParamValidator(resultingObject, id) {
     if (typeof id === 'undefined') {
         id = Countly.device_id;
     }
+    assert.ok(resultingObject);
     assert.equal(Countly.app_key, resultingObject.app_key);
     assert.equal(id, resultingObject.device_id);
     assert.ok(typeof resultingObject.sdk_name !== 'undefined');
@@ -176,8 +180,9 @@ function viewEventValidator(name, viewObj, time) {
 //exports
 module.exports = {
     clearStorage,
-    span,
-    mpan,
+    sWait,
+    mWait,
+    lWait,
     readEventQueue,
     readRequestQueue,
     eventValidator,
